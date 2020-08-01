@@ -68,17 +68,24 @@
 
 
 def sum(arr):
+    
     if len(arr)==1:
         return arr[0]
     if len(arr)==0:
         return 0
     mid = len(arr) // 2 
     return sum(arr[:mid]) +sum(arr[mid:])
-def portition_equal_sum_arr(i,arr,left_arr=[],right_arr=[]):
+
+
+def pesa(i,arr,left_arr=[],right_arr=[]):
+
     if i<len(arr):
-        portition_equal_sum_arr(i+1,arr,left_arr+[arr[i]],right_arr)
-        portition_equal_sum_arr(i+1,arr,left_arr,right_arr+[arr[i]])
-        portition_equal_sum_arr(i+1,arr,left_arr,right_arr)
-    if sum(right_arr) == sum(left_arr) and left_arr!=[] and right_arr!=[]:
+
+        pesa(i+1,arr,left_arr+[arr[i]],right_arr)
+        pesa(i+1,arr,left_arr,right_arr+[arr[i]])
+        pesa(i+1,arr,left_arr,right_arr)
+
+    if sum(right_arr) == sum(left_arr)!=0:
         print(right_arr,left_arr)
-portition_equal_sum_arr(0,[1,2,3,5])
+
+pesa(0,[1,2,3,5])
