@@ -67,25 +67,37 @@
 #     print("Element is not present in array") 
 
 
-def sum(arr):
-    
-    if len(arr)==1:
-        return arr[0]
-    if len(arr)==0:
-        return 0
-    mid = len(arr) // 2 
-    return sum(arr[:mid]) +sum(arr[mid:])
+# def sum(arr):
+
+#     if len(arr)==1:
+#         return arr[0]
+#     if len(arr)==0:
+#         return 0
+#     mid = len(arr) // 2 
+#     return sum(arr[:mid]) +sum(arr[mid:])
 
 
-def pesa(i,arr,left_arr=[],right_arr=[]):
+# def pesa(arr,i,left_arr=None,right_arr=[]):
+#     if left_arr == None:
+#         left_arr = [arr[0]]
+#     if i == len(arr):
+#         if sum(right_arr) == sum(left_arr):
+#             print(right_arr,left_arr)
+#     if i < len(arr) :
 
-    if i<len(arr):
+#         pesa(arr,i+1,left_arr+[arr[i]],right_arr)
+#         pesa(arr,i+1,left_arr,right_arr+[arr[i]])
+#         # pesa(arr,i+1,left_arr,right_arr)
+        
+# pesa([1,2,3,5,6,5],1)
 
-        pesa(i+1,arr,left_arr+[arr[i]],right_arr)
-        pesa(i+1,arr,left_arr,right_arr+[arr[i]])
-        pesa(i+1,arr,left_arr,right_arr)
 
-    if sum(right_arr) == sum(left_arr)!=0:
-        print(right_arr,left_arr)
+arr = [1,5,3,2,9,7]
+def tla(arr,n=0,arr_2=[],i=0):
+    if i == len(arr):
+        print(arr_2)
+    elif arr[i]>arr[i-1] : 
+        tla(arr,arr[i],arr_2,i+1)
+        tla(arr,arr[i],arr_2+[arr[i]],i+1)
 
-pesa(0,[1,2,3,5])
+tla(arr)
